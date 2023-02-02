@@ -127,13 +127,13 @@ O/P:
 1 1
 
 //#4 Print the count of those subsequences whose sum = k.
-import java.io.*;
+iimport java.io.*;
 import java.lang.*;
 import java.util.*; 
 class HelloWorld{
     // public static int flag=0; 
     // instead of doing it by the help of global variable count, we do it by the help of functional methods and without count
-    public static int f(int ind, int[] arr, ArrayList<Integer> al, int s, int sum){
+    public static int f(int ind, int[] arr, int s, int sum){
          if(s==sum){
         //   count=1;
         //   for(int i=0 ; i<al.size() ; i++){
@@ -144,11 +144,11 @@ class HelloWorld{
      return 0;
       }
       s=s+arr[ind];
-      al.add(arr[ind]);
-      int count1=f(ind+1, arr, al, s, sum);
+    //   al.add(arr[ind]);
+      int count1=f(ind+1, arr, s, sum);
       s=s-arr[ind];
-      al.remove(al.size()-1);
-      int count2=f(ind+1, arr, al, s, sum);
+    //   al.remove(al.size()-1);
+      int count2=f(ind+1, arr, s, sum);
     return count1+count2;
     }
     public static void main(String[] args) throws IOException {
@@ -160,8 +160,8 @@ class HelloWorld{
      for(int i=0 ; i<n ; i++){
       arr[i]=Integer.parseInt(s[i]);
      }
-     ArrayList<Integer> al=new ArrayList<Integer>();
-     System.out.println("Count of subsequences whose sum is "+sum+": "+f(0, arr,al, 0, sum));
+    //  ArrayList<Integer> al=new ArrayList<Integer>();
+     System.out.println("Count of subsequences whose sum is "+sum+": "+f(0, arr, 0, sum));
     }
 }
 O/P:
